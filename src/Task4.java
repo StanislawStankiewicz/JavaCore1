@@ -1,4 +1,4 @@
-import java.util.List;
+import java.util.Arrays;
 
 //Imagine an interface AccountService that is designed for keeping track of accounts and balances. It has two abstract methods:
 //findAccountByOwnerId(long id) takes user id and returns this user account or null in case no account was found;
@@ -12,11 +12,11 @@ import java.util.List;
 //Note: do not make classes and the interface public.
 public class Task4 {
     public static void main(String[] args) {
-        List<Account> accounts = List.of(
-                new Account(1, 1, new User(4, "a", "b")),
-                new Account(2, 10, new User(5, "b", "c")),
-                new Account(3, 100, new User(6, "c", "d"))
-        );
+        Account[] accounts = new Account[3];
+
+        accounts[0] = new Account(1, 1, new User(4, "a", "b"));
+        accounts[1] = new Account(2, 10, new User(5, "b", "c"));
+        accounts[2] = new Account(3, 100, new User(6, "c", "d"));
         AccountService service = new AccountServiceImpl(accounts);
 
         System.out.println(service.countAccountsWithBalanceGreaterThan(3));
@@ -40,15 +40,15 @@ public class Task4 {
 
     // Declare and implement your AccountServiceImpl here
     static class AccountServiceImpl implements AccountService {
-        List<Account> accounts;
+        Account[] accounts;
 
-        public AccountServiceImpl(List<Account> accounts) {
+        public AccountServiceImpl(Account[] accounts) {
             this.accounts = accounts;
         }
 
         @Override
         public Account findAccountByOwnerId(long id) {
-            return accounts.stream()
+            return Arrays.stream(accounts)
                     .filter(a -> a.getOwner().getId() == id)
                     .findFirst().orElse(null);
         }
