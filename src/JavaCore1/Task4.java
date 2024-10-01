@@ -1,3 +1,5 @@
+package JavaCore1;
+
 import java.util.Arrays;
 
 //Imagine an interface AccountService that is designed for keeping track of accounts and balances. It has two abstract methods:

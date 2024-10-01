@@ -1,3 +1,5 @@
+package JavaCore1;
+
 import java.util.Arrays;
 
 //Write a program that reads an array of ints and checks if the array is sorted ascending (from smallest to largest number).

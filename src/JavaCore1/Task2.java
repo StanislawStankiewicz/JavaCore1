@@ -1,3 +1,5 @@
+package JavaCore1;
+
 //Write 3 implementations (or more) for reversing a string.
 //        Input:
 //String stringToRevers = "I'm going to go to school today morning."
